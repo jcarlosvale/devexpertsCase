@@ -2,6 +2,7 @@ package com.devexperts.model;
 
 import com.devexperts.model.account.Account;
 import com.devexperts.model.account.AccountKey;
+import java.util.Objects;
 
 public class BankAccount extends Account {
 
@@ -16,5 +17,22 @@ public class BankAccount extends Account {
     @Override
     public AccountKey getAccountKey() {
         return bankAccountKey;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        BankAccount that = (BankAccount) o;
+        return Objects.equals(bankAccountKey, that.bankAccountKey);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bankAccountKey);
     }
 }

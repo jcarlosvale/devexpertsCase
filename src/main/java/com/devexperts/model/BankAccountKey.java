@@ -13,6 +13,10 @@ public class BankAccountKey extends AccountKey {
         return new BankAccountKey(accountId);
     }
 
+    public long getAccountId() {
+        return this.accountId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
