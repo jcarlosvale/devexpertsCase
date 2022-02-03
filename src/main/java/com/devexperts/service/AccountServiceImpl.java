@@ -53,10 +53,13 @@ public class AccountServiceImpl implements AccountService {
                     String.format("Insufficient Account Balance from source account %s, amount: %f",
                             source, amount));
         } else {
-            accountSource.setBalance(accountSource.getBalance() - amount);
-            accountTarget.setBalance(accountTarget.getBalance() + amount);
+            synchronized (accountSource) {
+                synchronized (accountTarget) {
+                    accountSource.setBalance(accountSource.getBalance() - amount);
+                    accountTarget.setBalance(accountTarget.getBalance() + amount);
+                }
+            }
         }
-
     }
 
     public BankAccount getBankAccountAccount(final Account account) {
