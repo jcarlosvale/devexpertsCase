@@ -12,11 +12,11 @@ public class Verifications {
         if (account == null) throw new AccountIsNullException();
     }
 
-    public static void verifyAccountIsInstanceOfBankAccount(Account account) {
+    public static void verifyAccountIsInstanceOfBankAccount(final Account account) {
         if (!(account instanceof BankAccount)) throw new AccountIsNotBankAccountException();
     }
 
-    public static void verifyIsValidAmount(double amount) {
+    public static void verifyIsValidAmount(final double amount) {
         if (amount <= 0) {
             throw new InvalidAmountException();
         }

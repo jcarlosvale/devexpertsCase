@@ -25,7 +25,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class AccountServiceImplTest {
+class BankAccountServiceImplTest {
 
     @Mock
     private Account account;
@@ -35,7 +35,7 @@ class AccountServiceImplTest {
     private AccountRepository accountRepository;
 
     @InjectMocks
-    private AccountServiceImpl accountService;
+    private BankAccountServiceImpl accountService;
 
     @Test
     void clear() {
